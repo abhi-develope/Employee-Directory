@@ -5,12 +5,11 @@
 <p align="center">
   <img src="./Screenshots/homepage.png" width="200"/>
   <img src="./Screenshots/departementfilter.png" width="200"/>
-  <img src="./screenshots/addemployeeform.png" width="200"/>
-  <img src="./screenshots/employeedetail.png" width="200"/>
-  <img src="./screenshots/appolloplayground.png" width="200"/>
+  <img src="./Screenshots/addemployeeform.png" width="200"/>
+  <img src="./Screenshots/employeedetail.png" width="200"/>
+  <img src="./Screenshots/appolloplayground.png" width="200"/>
 </p>
 
----
 
 ---
 

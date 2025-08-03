@@ -2,13 +2,13 @@
 
 ## 📱 Application Screenshots
 
-| Screenshot | Description |
-|------------|-------------|
-| ![Home Page](./Screenshots/homepage.png)<br>**Home Page - Employee List** | *Clean employee list with department filtering and add button* |
-| ![Department Filter](./Screenshots/departmentfilter.png)<br>**Department Filter in Action** | *Filtering employees by Engineering department* |
-| ![Add Employee Form](./screenshots/addemployeeform.png)<br>**Add Employee Modal** | *Responsive form with validation and department dropdown* |
-| ![Employee Details](./screenshots/employeedetail.png)<br>**Employee Detail Page** | *Complete employee information with professional layout* |
-| ![GraphQL Playground](./screenshots/appolloplayground.png)<br>**GraphQL Playground** | *Apollo Server 4 GraphQL playground for API testing* |
+<p align="center">
+  <img src="./Screenshots/homepage.png" width="200"/>
+  <img src="./Screenshots/departementfilter.png" width="200"/>
+  <img src="./screenshots/addemployeeform.png" width="200"/>
+  <img src="./screenshots/employeedetail.png" width="200"/>
+  <img src="./screenshots/appolloplayground.png" width="200"/>
+</p>
 
 ---
 

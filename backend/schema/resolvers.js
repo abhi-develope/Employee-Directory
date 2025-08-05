@@ -41,7 +41,8 @@ export const resolvers = {
           name: employee.name,
           position: employee.position,
           department: employee.department,
-          salary: employee.salary
+          salary: employee.salary,
+          profileVisited: employee.profileVisited || 0
         };
       } catch (error) {
         throw new Error(error.message || 'Failed to fetch employee details');
@@ -60,7 +61,8 @@ export const resolvers = {
           name: emp.name,
           position: emp.position,
           department: emp.department,
-          salary: emp.salary
+          salary: emp.salary,
+          profileVisited: emp.profileVisited || 0
         }));
       } catch (error) {
         throw new Error('Failed to fetch employees by department');
@@ -98,6 +100,7 @@ export const resolvers = {
           position,
           department,
           salary,
+          profileVisited: 0,
           createdAt: new Date()
         };
 
@@ -108,10 +111,43 @@ export const resolvers = {
           name,
           position,
           department,
-          salary
+          salary,
+          profileVisited: 0
         };
       } catch (error) {
         throw new Error(error.message || 'Failed to add employee');
+      }
+    },
+
+    incrementProfileVisited: async (_, { id }) => {
+      try {
+        const db = getDB();
+        
+        if (!ObjectId.isValid(id)) {
+          throw new Error('Invalid employee ID format');
+        }
+
+        const result = await db.collection('employees').findOneAndUpdate(
+          { _id: ObjectId.createFromHexString(id) },
+          { $inc: { profileVisited: 1 } },
+          { returnDocument: 'after' }
+        );
+
+        if (!result.value) {
+          throw new Error('Employee not found');
+        }
+
+        const employee = result.value;
+        return {
+          id: employee._id.toString(),
+          name: employee.name,
+          position: employee.position,
+          department: employee.department,
+          salary: employee.salary,
+          profileVisited: employee.profileVisited
+        };
+      } catch (error) {
+        throw new Error(error.message || 'Failed to increment profile visited');
       }
     }
   }

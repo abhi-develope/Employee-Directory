@@ -5,6 +5,7 @@ export const typeDefs = `#graphql
     position: String!
     department: String!
     salary: Float!
+    profileVisited: Int!
   }
 
   type Department {
@@ -33,5 +34,7 @@ export const typeDefs = `#graphql
       department: String!
       salary: Float!
     ): Employee!
+    
+    incrementProfileVisited(id: ID!): Employee!
   }
 `;

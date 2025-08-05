@@ -19,12 +19,12 @@ const seedData = async () => {
 
     // Seed employees
     const employees = [
-      { name: 'John Doe', position: 'Senior Developer', department: 'Engineering', salary: 90000 },
-      { name: 'Jane Smith', position: 'Frontend Developer', department: 'Engineering', salary: 75000 },
-      { name: 'Mike Johnson', position: 'Marketing Manager', department: 'Marketing', salary: 80000 },
-      { name: 'Sarah Wilson', position: 'Content Creator', department: 'Marketing', salary: 60000 },
-      { name: 'David Brown', position: 'Sales Representative', department: 'Sales', salary: 55000 },
-      { name: 'Emily Davis', position: 'Sales Manager', department: 'Sales', salary: 85000 }
+      { name: 'John Doe', position: 'Senior Developer', department: 'Engineering', salary: 90000, profileVisited: 0 },
+      { name: 'Jane Smith', position: 'Frontend Developer', department: 'Engineering', salary: 75000, profileVisited: 0 },
+      { name: 'Mike Johnson', position: 'Marketing Manager', department: 'Marketing', salary: 80000, profileVisited: 0 },
+      { name: 'Sarah Wilson', position: 'Content Creator', department: 'Marketing', salary: 60000, profileVisited: 0 },
+      { name: 'David Brown', position: 'Sales Representative', department: 'Sales', salary: 55000, profileVisited: 0 },
+      { name: 'Emily Davis', position: 'Sales Manager', department: 'Sales', salary: 85000, profileVisited: 0 }
     ];
 
     await db.collection('employees').insertMany(employees);

@@ -1,8 +1,13 @@
 'use client';
 import Link from 'next/link';
 import LoadingSpinner from './LoadingSpinner';
+import { useState } from 'react';
+import EmployeeDetailModal from './EmployeeDetailModal';
 
 export default function EmployeeList({ employees, loading, error }) {
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   if (loading) return <LoadingSpinner size="large" />;
   
   if (error) {
@@ -62,18 +67,28 @@ export default function EmployeeList({ employees, loading, error }) {
                   <div className="text-sm text-gray-900">{employee.position}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                  <Link
-                    href={`/employee/${employee.id}`}
-                    className="text-blue-600 hover:text-blue-900 transition-colors duration-200"
+                  <button
+                    type="button"
+                    className="text-blue-600 hover:text-blue-900 transition-colors duration-200 focus:outline-none"
+                    onClick={() => {
+                      setSelectedEmployee(employee);
+                      setIsModalOpen(true);
+                    }}
                   >
                     View Details
-                  </Link>
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {isModalOpen && selectedEmployee && (
+        <EmployeeDetailModal
+          employee={selectedEmployee}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 }
